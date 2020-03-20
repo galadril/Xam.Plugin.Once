@@ -1,6 +1,4 @@
 ﻿using Acr.UserDialogs;
-using System.Collections.Generic;
-using System.Threading;
 using Xam.Plugin.Once.Samples.Helpers;
 using Xamarin.Forms;
 
