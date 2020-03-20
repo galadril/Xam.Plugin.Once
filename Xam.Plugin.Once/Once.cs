@@ -82,7 +82,7 @@ namespace Xam.Plugin.Once
         /// <summary>
         /// Check if a task needs to be run
         /// </summary>
-        public void RunNeedsTo(string key, Command task, int? runAfterDays = null)
+        public void RunWhen(string key, Command task, int? runAfterDays = null)
         {
             var at = GetPreference(key);
             if (at == null || (runAfterDays.HasValue && ((DateTime.Now - at.Value).TotalDays >= runAfterDays)))
