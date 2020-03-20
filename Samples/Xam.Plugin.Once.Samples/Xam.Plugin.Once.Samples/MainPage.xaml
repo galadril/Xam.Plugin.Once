@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Xam.Plugin.Once.Samples.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Xam.Plugin.Once.Samples.ViewModel;assembly=Xam.Plugin.Once.Samples"
+    Title="Sample Once"
+    BackgroundColor="#F0F0F0"
+    Visual="Material">
+
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Label Text="This is Once" />
+    </ContentPage.Content>
+</ContentPage>

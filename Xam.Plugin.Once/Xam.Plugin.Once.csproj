@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>galadril</Authors>
+    <Description>Just a nice and simple static map based on the Static Google Maps api endpoint for your Xamarin Forms project</Description>
+    <Copyright>Mark Heinis</Copyright>
+    <PackageProjectUrl>https://github.com/galadril/Xam.Plugin.Once</PackageProjectUrl>
+    <RepositoryUrl>https://www.nuget.org/packages/Xam.Plugin.Once</RepositoryUrl>
+    <PackageTags>Xamarin, Xamarin Forms, Forms, App, Map, Static, Static Map</PackageTags>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.1</Version>
+    <ApplicationIcon />
+    <PackageIcon>ic_launcher.png</PackageIcon>
+    <PackageIconUrl />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.4.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991757" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="AnimatedOnce.xaml.cs">
+      <DependentUpon>AnimatedOnce.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Once.xaml.cs">
+      <DependentUpon>Once.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AnimatedCheckboxSlideView.xaml.cs">
+      <DependentUpon>AnimatedCheckboxSlideView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AnimatedSwitchSlideView.xaml.cs">
+      <DependentUpon>AnimatedSwitchSlideView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AnimatedButtonSlideView.xaml.cs">
+      <DependentUpon>AnimatedButtonSlideView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ButtonSlideView.xaml.cs">
+      <DependentUpon>ButtonSlideView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CheckboxSlideView.xaml.cs">
+      <DependentUpon>CheckboxSlideView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SwitchSlideView.xaml.cs">
+      <DependentUpon>SwitchSlideView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\AnimatedSlideView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Once.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SlideView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Samples\Xam.Plugin.Once.Samples\Xam.Plugin.Once.Samples.Android\Resources\mipmap-xxhdpi\ic_launcher.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+</Project>
