@@ -70,22 +70,22 @@ namespace Xam.Plugin.Once
         /// <summary>
         /// Check if a task needs to be run
         /// </summary>
-        public bool NeedsToRun(string key, int? runAfterDays = null)
+        public bool NeedsToRun(string key, After runAfter = null)
         {
             var at = GetPreference(key);
             if (at == null)
                 return true; // probably just a run once task
             else
-                return runAfterDays.HasValue ? ((DateTime.Now - at.Value).TotalDays >= runAfterDays) : false;
+                return runAfter != null ? ItsTime(runAfter, at.Value) : false;
         }
 
         /// <summary>
         /// Check if a task needs to be run
         /// </summary>
-        public void RunWhen(string key, Command task, int? runAfterDays = null)
+        public void RunWhen(string key, Command task, After runAfter = null)
         {
             var at = GetPreference(key);
-            if (at == null || (runAfterDays.HasValue && ((DateTime.Now - at.Value).TotalDays >= runAfterDays)))
+            if (at == null || ItsTime(runAfter, at.Value))
             {
                 task.Execute(key);
                 SetPreference(key, DateTime.Now);
@@ -96,6 +96,34 @@ namespace Xam.Plugin.Once
 
 
         #region Private
+
+        /// <summary>
+        /// Check if its time to run
+        /// </summary>
+        private bool ItsTime(After runAfter, DateTime lastRun)
+        {
+            if (runAfter == null)
+                return true;
+            else
+            {
+                switch(runAfter.Type)
+                {
+                    case After.AfterType.Days:
+                        var daysPast = (DateTime.Now - lastRun).TotalDays;
+                        return daysPast >= runAfter.RunAfter;
+                    case After.AfterType.Minutes:
+                        var minutesPast = (DateTime.Now - lastRun).TotalMinutes;
+                        return minutesPast >= runAfter.RunAfter;
+                    case After.AfterType.Seconds:
+                        var secondsPast = (DateTime.Now - lastRun).TotalSeconds;
+                        return secondsPast >= runAfter.RunAfter;
+                    case After.AfterType.Milliseconds:
+                        var milliSecondsPast = (DateTime.Now - lastRun).TotalMilliseconds;
+                        return milliSecondsPast >= runAfter.RunAfter;
+                }
+                return false;
+            }
+        }
 
         /// <summary>
         /// Set preference
