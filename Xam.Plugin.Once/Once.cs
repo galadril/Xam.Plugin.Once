@@ -7,6 +7,9 @@ using Xamarin.Forms;
 
 namespace Xam.Plugin.Once
 {
+    /// <summary>
+    /// Just a nice and simple static map based on the Static Google Maps api endpoint for your Xamarin Forms project
+    /// </summary>
     [Preserve(AllMembers = true)]
     public class Once
     {
@@ -59,6 +62,7 @@ namespace Xam.Plugin.Once
         {
             if (string.IsNullOrEmpty(key))
                 throw new ArgumentException("Once need a key to work with", nameof(key));
+
             return GetPreference(key);
         }
 
@@ -71,6 +75,7 @@ namespace Xam.Plugin.Once
         {
             if (string.IsNullOrEmpty(key))
                 throw new ArgumentException("Once need a key to work with", nameof(key));
+
             SetPreference(key, at ?? DateTime.Now);
         }
 
@@ -83,6 +88,7 @@ namespace Xam.Plugin.Once
         {
             if (string.IsNullOrEmpty(key))
                 throw new ArgumentException("Once need a key to work with", nameof(key));
+
             var at = GetPreference(key);
             if (at == null)
                 return true; // probably just a run once task
