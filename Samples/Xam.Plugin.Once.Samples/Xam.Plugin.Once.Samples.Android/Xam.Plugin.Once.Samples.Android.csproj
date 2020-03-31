@@ -81,13 +81,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs">
-      <Version>7.1.0.440</Version>
+      <Version>7.1.0.442</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
-      <Version>1.4.0</Version>
+      <Version>1.5.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
       <Version>4.4.0.991757</Version>
