@@ -41,9 +41,9 @@ Here are some examples on how to use Once for Xamarin Forms:
  
 ```
             if(Once.Instance.LastRunAt(SHOW_SURVEY) == null)
-                Once.Instance.RunWhen(SHOW_SURVEY, new Command(() => UserDialogs.Instance.Toast("Show app survey")), new After() {RunAfter = 30, Type = After.AfterType.Days });
+                Once.Instance.RunWhen(SHOW_SURVEY, new Command(() => UserDialogs.Instance.Toast("Show app survey")), false, new After() {RunAfter = 30, Type = After.AfterType.Days });
             else
-                Once.Instance.RunWhen(SHOW_SURVEY, new Command(() => UserDialogs.Instance.Toast("Show app survey")), new After() {RunAfter = 90, Type = After.AfterType.Days });
+                Once.Instance.RunWhen(SHOW_SURVEY, new Command(() => UserDialogs.Instance.Toast("Show app survey")), false, new After() {RunAfter = 90, Type = After.AfterType.Days });
  
 ```
 
