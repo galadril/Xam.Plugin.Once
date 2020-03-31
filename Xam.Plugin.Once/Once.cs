@@ -56,6 +56,8 @@ namespace Xam.Plugin.Once
         /// </summary>
         public DateTime? LastRunAt(string key)
         {
+            if (string.IsNullOrEmpty(key))
+                throw new ArgumentException("Once need a key to work with", nameof(key));
             return GetPreference(key);
         }
 
@@ -64,6 +66,8 @@ namespace Xam.Plugin.Once
         /// </summary>
         public void MarkRunAsDone(string key, DateTime? at = null)
         {
+            if (string.IsNullOrEmpty(key))
+                throw new ArgumentException("Once need a key to work with", nameof(key));
             SetPreference(key, at ?? DateTime.Now);
         }
 
@@ -72,6 +76,8 @@ namespace Xam.Plugin.Once
         /// </summary>
         public bool NeedsToRun(string key, After runAfter = null)
         {
+            if (string.IsNullOrEmpty(key))
+                throw new ArgumentException("Once need a key to work with", nameof(key));
             var at = GetPreference(key);
             if (at == null)
                 return true; // probably just a run once task
@@ -82,13 +88,19 @@ namespace Xam.Plugin.Once
         /// <summary>
         /// Check if a task needs to be run
         /// </summary>
-        public void RunWhen(string key, Command task, After runAfter = null)
+        public void RunWhen(string key, Command task, bool autoMarkAsDone = false, After runAfter = null)
         {
+            if (string.IsNullOrEmpty(key))
+                throw new ArgumentException("Once need a key to work with", nameof(key));
+            if (task is null)
+                throw new ArgumentNullException(nameof(task));
+
             var at = GetPreference(key);
             if (at == null || ItsTime(runAfter, at.Value))
             {
                 task.Execute(key);
-                SetPreference(key, DateTime.Now);
+                if(autoMarkAsDone)
+                    SetPreference(key, DateTime.Now);
             }
         }
 
