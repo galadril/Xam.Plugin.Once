@@ -8,7 +8,7 @@ using Xamarin.Forms;
 namespace Xam.Plugin.Once
 {
     /// <summary>
-    /// Just a nice and simple static map based on the Static Google Maps api endpoint for your Xamarin Forms project
+    /// A simple Xamarin Forms library to manage one-off operations.
     /// </summary>
     [Preserve(AllMembers = true)]
     public class Once
