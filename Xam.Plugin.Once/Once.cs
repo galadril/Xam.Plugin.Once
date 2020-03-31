@@ -54,6 +54,7 @@ namespace Xam.Plugin.Once
         /// <summary>
         /// Get the last completed at date
         /// </summary>
+        /// <param name="key">The key of the task</param>
         public DateTime? LastRunAt(string key)
         {
             if (string.IsNullOrEmpty(key))
@@ -64,6 +65,8 @@ namespace Xam.Plugin.Once
         /// <summary>
         /// Mark a task as completed
         /// </summary>
+        /// <param name="key">The key of the task</param>
+        /// <param name="at">Set this datetime as the completed date time</param>
         public void MarkRunAsDone(string key, DateTime? at = null)
         {
             if (string.IsNullOrEmpty(key))
@@ -74,6 +77,8 @@ namespace Xam.Plugin.Once
         /// <summary>
         /// Check if a task needs to be run
         /// </summary>
+        /// <param name="key">The key of the task</param>
+        /// <param name="runAfter">Set a runafter schedule</param>
         public bool NeedsToRun(string key, After runAfter = null)
         {
             if (string.IsNullOrEmpty(key))
@@ -88,6 +93,10 @@ namespace Xam.Plugin.Once
         /// <summary>
         /// Check if a task needs to be run
         /// </summary>
+        /// <param name="key">The key of the task</param>
+        /// <param name="task">The Command to run when the time is right</param>
+        /// <param name="autoMarkAsDone">Automaticly mark the task as done</param>
+        /// <param name="runAfter">Set a runafter schedule</param>
         public void RunWhen(string key, Command task, bool autoMarkAsDone = false, After runAfter = null)
         {
             if (string.IsNullOrEmpty(key))
