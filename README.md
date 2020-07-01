@@ -47,14 +47,14 @@ Here are some examples on how to use Once for Xamarin Forms:
  
 ```
 
-- // just to check if we need to show the app intro
+- Just to check if we need to show the app intro
  
 ```
             _ = Once.Instance.NeedsToRun(SHOW_APP_INTRO);
  
 ```
 
-- // Mark a task to done
+- Mark a task to done
  
 ```
             Once.Instance.MarkRunAsDone(SHOW_APP_CHANGELOG);
