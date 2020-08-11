@@ -63,3 +63,12 @@ Here are some examples on how to use Once for Xamarin Forms:
 
 
 (see sample project for more info)
+
+
+
+
+# Donation
+
+If you like to say thanks, you could always buy me a cup of coffee (/beer)!   
+(Thanks!)  
+[![PayPal donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.me/markheinis)
